@@ -1,0 +1,175 @@
+  
+CREATE TABLE images_tbl(
+   images_id INT NOT NULL AUTO_INCREMENT,
+   images_path VARCHAR(200) NOT NULL,
+   submission_date DATE,
+   PRIMARY KEY (images_id)
+);
+
+ 
+ create table land (id int NOT NULL AUTO_INCREMENT, zipcode int, street varchar(255), price int, lotsize int, description text, images_id int, PRIMARY KEY (id), FOREIGN KEY (images_id) REFERENCES images_tbl(images_id));
+ 
+ 
+ create table estate (id int NOT NULL AUTO_INCREMENT, zipcode int, street varchar(255), bookingprice int, carpetarea int, possession int, apartmenttype integer, description text, images_id int, PRIMARY KEY (id), FOREIGN KEY (images_id) REFERENCES images_tbl(images_id));
+ 
+ create table estatefeatures (featureid int, feature varchar(255),  PRIMARY KEY (featureid));
+ 
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (1, 'Lift');
+
+INSERT INTO estatefeatures (featureid, feature)
+VALUES (2, 'Fire Fighting System');
+
+INSERT INTO estatefeatures (featureid, feature)
+VALUES (3, 'Car Parking');
+ 
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (4, 'Gymnasium');
+
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (7, 'Club House');
+
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (8, 'Childrens Play Area');
+
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (9, 'Intercom');
+
+
+ create table estatefeaturejoin  (id int, featureid int, FOREIGN KEY (id) REFERENCES estate(id),  FOREIGN KEY (featureid) REFERENCES estatefeatures(featureid));
+ 
+
+  create table rental (id int NOT NULL AUTO_INCREMENT, zipcode int, street varchar(255), price int, bedrooms int, bathrooms int, sqft int, 
+ build int, description text, images_id int, PRIMARY KEY (id), FOREIGN KEY (images_id) REFERENCES images_tbl(images_id));
+ 
+ create table rentalfeatures (featureid int, feature varchar(255),  PRIMARY KEY (featureid));
+
+
+create table rentalfeaturejoin  (id int, featureid int, FOREIGN KEY (id) REFERENCES rental(id),  FOREIGN KEY (featureid) REFERENCES rentalfeatures(featureid));
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (1, 'Air Conditioning');
+
+INSERT INTO rentalfeatures (featureid, feature)
+VALUES (2, 'Balcony');
+
+INSERT INTO rentalfeatures (featureid, feature)
+VALUES (3, 'Basement');
+ 
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (4, 'Elevator');
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (5, 'Furnished');
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (6, 'Garage');
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (7, 'Garden');
+
+
+create table rentalstyles (styleid int, style varchar(255),  PRIMARY KEY (styleid));
+
+
+create table rentalstylejoin  (id int, styleid int, FOREIGN KEY (id) REFERENCES rental(id),  FOREIGN KEY (styleid) REFERENCES rentalstyles(styleid));
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815458, '1 Story');
+
+INSERT INTO rentalstyles (styleid, style)
+VALUES (815460, '2 Story');
+
+INSERT INTO rentalstyles (styleid, style)
+VALUES (815462, '3 Story');
+ 
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815464, '3+ Story');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815470, 'Bungalow');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815484, 'Farmhouse');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815485, 'Flat');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815490, 'Mansion');
+
+ 
+ 
+  create table sale (id int NOT NULL AUTO_INCREMENT, zipcode int, street varchar(255), price int, bedrooms int, bathrooms int, sqft int, 
+ build int, description text, images_id int, PRIMARY KEY (id), FOREIGN KEY (images_id) REFERENCES images_tbl(images_id));
+ 
+ create table salefeatures (featureid int, feature varchar(255),  PRIMARY KEY (featureid));
+
+
+create table salefeaturejoin  (id int, featureid int, FOREIGN KEY (id) REFERENCES sale(id),  FOREIGN KEY (featureid) REFERENCES salefeatures(featureid));
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (1, 'Air Conditioning');
+
+INSERT INTO salefeatures (featureid, feature)
+VALUES (2, 'Balcony');
+
+INSERT INTO salefeatures (featureid, feature)
+VALUES (3, 'Basement');
+ 
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (4, 'Elevator');
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (5, 'Furnished');
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (6, 'Garage');
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (7, 'Garden');
+
+
+create table salestyles (styleid int, style varchar(255),  PRIMARY KEY (styleid));
+
+
+create table salestylejoin  (id int, styleid int, FOREIGN KEY (id) REFERENCES sale(id),  FOREIGN KEY (styleid) REFERENCES salestyles(styleid));
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815458, '1 Story');
+
+INSERT INTO salestyles (styleid, style)
+VALUES (815460, '2 Story');
+
+INSERT INTO salestyles (styleid, style)
+VALUES (815462, '3 Story');
+ 
+ INSERT INTO salestyles (styleid, style)
+VALUES (815464, '3+ Story');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815470, 'Bungalow');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815484, 'Farmhouse');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815485, 'Flat');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815490, 'Mansion');
+
+ 
+ CREATE TABLE `users` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `first_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+ `last_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+ `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+ `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+ `created` datetime NOT NULL,
+ `modified` datetime NOT NULL,
+ `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+ 

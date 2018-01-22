@@ -1,0 +1,274 @@
+  create table rental (id int , zipcode int, street varchar(255), price int, bedrooms int, bathrooms int, sqft int, 
+ build int, description text, PRIMARY KEY (id));
+ 
+  INSERT INTO rental (id, zipcode, street, price, bedrooms, bathrooms, sqft, build, description)
+VALUES (1, 800013, 'Vivekananda Marg', 2000, 3, 2, 1000, 2000, 'The house is located at 14 Vivekanand Path and has 3 bedrooms and 2 bathrooms. It was built in 2000');
+
+INSERT INTO rental (id, zipcode, street, price, bedrooms, bathrooms, sqft, build, description)
+VALUES (2, 500017, 'Boring Road', 4000, 2, 2, 1500, 2010, 'The house is located at 114 Boring Road and has 2 bedrooms and 2 bathrooms. It was built in 2010');
+
+  INSERT INTO rental (id, zipcode, street, price, bedrooms, bathrooms, sqft, build)
+VALUES (3, 800013, 'Vivekananda Marg1', 2000, 4, 2, 1100, 2015);
+
+ INSERT INTO rental (id, zipcode, street, price, bedrooms, bathrooms, sqft, build)
+VALUES (4, 800013, 'Vivekaasdnanda', 2500, 2, 2, 1100, 2015);
+
+create table rentalfeatures (featureid int, feature varchar(255),  PRIMARY KEY (featureid));
+
+
+create table rentalfeaturejoin  (id int, featureid int, FOREIGN KEY (id) REFERENCES rental(id),  FOREIGN KEY (featureid) REFERENCES rentalfeatures(featureid));
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (1, 'Air Conditioning');
+
+INSERT INTO rentalfeatures (featureid, feature)
+VALUES (2, 'Balcony');
+
+INSERT INTO rentalfeatures (featureid, feature)
+VALUES (3, 'Basement');
+ 
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (4, 'Elevator');
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (5, 'Furnished');
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (6, 'Garage');
+
+ INSERT INTO rentalfeatures (featureid, feature)
+VALUES (7, 'Garden');
+
+ INSERT INTO rentalfeaturejoin (id, featureid)
+VALUES (1, 1);
+
+ INSERT INTO rentalfeaturejoin (id, featureid)
+VALUES (1, 2);
+
+ INSERT INTO rentalfeaturejoin (id, featureid)
+VALUES (2, 1);
+
+ INSERT INTO rentalfeaturejoin (id, featureid)
+VALUES (3, 1);
+
+ INSERT INTO rentalfeaturejoin (id, featureid)
+VALUES (3, 2);
+
+create table rentalstyles (styleid int, style varchar(255),  PRIMARY KEY (styleid));
+
+
+create table rentalstylejoin  (id int, styleid int, FOREIGN KEY (id) REFERENCES rental(id),  FOREIGN KEY (styleid) REFERENCES rentalstyles(styleid));
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815458, '1 Story');
+
+INSERT INTO rentalstyles (styleid, style)
+VALUES (815460, '2 Story');
+
+INSERT INTO rentalstyles (styleid, style)
+VALUES (815462, '3 Story');
+ 
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815464, '3+ Story');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815470, 'Bungalow');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815484, 'Farmhouse');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815485, 'Flat');
+
+ INSERT INTO rentalstyles (styleid, style)
+VALUES (815490, 'Mansion');
+
+ INSERT INTO rentalstylejoin (id, styleid)
+VALUES (1, 815458);
+
+ INSERT INTO rentalstylejoin (id, styleid)
+VALUES (1, 815460);
+
+ INSERT INTO rentalstylejoin (id, styleid)
+VALUES (2, 815460);
+
+ INSERT INTO rentalstylejoin (id, styleid)
+VALUES (3, 815460);
+
+ INSERT INTO rentalstylejoin (id, styleid)
+VALUES (3, 815462);
+
+
+
+
+  create table sale (id int , zipcode int, street varchar(255), price int, bedrooms int, bathrooms int, sqft int, 
+ build int, description text, PRIMARY KEY (id));
+ 
+  INSERT INTO sale (id, zipcode, street, price, bedrooms, bathrooms, sqft, build, description)
+VALUES (1, 800013, 'Vivekananda Marg', 2000, 3, 2, 1000, 2000, 'The house is located at 14 Vivekanand Path and has 3 bedrooms and 2 bathrooms. It was built in 2000');
+
+INSERT INTO sale (id, zipcode, street, price, bedrooms, bathrooms, sqft, build, description)
+VALUES (2, 500017, 'Boring Road', 4000, 2, 2, 1500, 2010, 'The house is located at 114 Boring Road and has 2 bedrooms and 2 bathrooms. It was built in 2010');
+
+  INSERT INTO sale (id, zipcode, street, price, bedrooms, bathrooms, sqft, build)
+VALUES (3, 800013, 'Vivekananda Marg1', 2000, 4, 2, 1100, 2015);
+
+ INSERT INTO sale (id, zipcode, street, price, bedrooms, bathrooms, sqft, build)
+VALUES (4, 800013, 'Vivekaasdnanda', 2500, 2, 2, 1100, 2015);
+
+create table salefeatures (featureid int, feature varchar(255),  PRIMARY KEY (featureid));
+
+
+create table salefeaturejoin  (id int, featureid int, FOREIGN KEY (id) REFERENCES sale(id),  FOREIGN KEY (featureid) REFERENCES salefeatures(featureid));
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (1, 'Air Conditioning');
+
+INSERT INTO salefeatures (featureid, feature)
+VALUES (2, 'Balcony');
+
+INSERT INTO salefeatures (featureid, feature)
+VALUES (3, 'Basement');
+ 
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (4, 'Elevator');
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (5, 'Furnished');
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (6, 'Garage');
+
+ INSERT INTO salefeatures (featureid, feature)
+VALUES (7, 'Garden');
+
+ INSERT INTO salefeaturejoin (id, featureid)
+VALUES (1, 1);
+
+ INSERT INTO salefeaturejoin (id, featureid)
+VALUES (1, 2);
+
+ INSERT INTO salefeaturejoin (id, featureid)
+VALUES (2, 1);
+
+ INSERT INTO salefeaturejoin (id, featureid)
+VALUES (3, 1);
+
+ INSERT INTO salefeaturejoin (id, featureid)
+VALUES (3, 2);
+
+create table salestyles (styleid int, style varchar(255),  PRIMARY KEY (styleid));
+
+
+create table salestylejoin  (id int, styleid int, FOREIGN KEY (id) REFERENCES sale(id),  FOREIGN KEY (styleid) REFERENCES salestyles(styleid));
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815458, '1 Story');
+
+INSERT INTO salestyles (styleid, style)
+VALUES (815460, '2 Story');
+
+INSERT INTO salestyles (styleid, style)
+VALUES (815462, '3 Story');
+ 
+ INSERT INTO salestyles (styleid, style)
+VALUES (815464, '3+ Story');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815470, 'Bungalow');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815484, 'Farmhouse');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815485, 'Flat');
+
+ INSERT INTO salestyles (styleid, style)
+VALUES (815490, 'Mansion');
+
+ INSERT INTO salestylejoin (id, styleid)
+VALUES (1, 815458);
+
+ INSERT INTO salestylejoin (id, styleid)
+VALUES (1, 815460);
+
+ INSERT INTO salestylejoin (id, styleid)
+VALUES (2, 815460);
+
+ INSERT INTO salestylejoin (id, styleid)
+VALUES (3, 815460);
+
+ INSERT INTO salestylejoin (id, styleid)
+VALUES (3, 815462);
+
+
+
+ create table land (id int, zipcode int, street varchar(255), price int, lotsize int, description text, PRIMARY KEY (id));
+ 
+ INSERT INTO land (id, zipcode, street, price, lotsize, description)
+VALUES (1, 800013, 'Vivekanand Path', 80000, 800, 'At Vivekanand');
+
+ INSERT INTO land (id, zipcode, street, price, lotsize, description)
+VALUES (2, 800013, 'Lal Bahadur Path', 180000, 1800, 'At Bahadur');
+
+ INSERT INTO land (id, zipcode, street, price, lotsize, description)
+VALUES (3, 800013, 'Boring Road Path', 280000, 2800, 'At Boring');
+
+ INSERT INTO land (id, zipcode, street, price, lotsize, description)
+VALUES (4, 800013, 'Vivekanand Path', 380000, 4800, 'At Vivekanand Path');
+ 
+
+ create table estate (id int, zipcode int, street varchar(255), bookingprice int, carpetarea int, possession int, apartmenttype integer, description text, PRIMARY KEY (id));
+ 
+   INSERT INTO estate (id, zipcode, street, bookingprice, carpetarea, possession, apartmenttype, description)
+VALUES (1, 800013, 'Vivekananda Marg', 80000, 1000, 12017, 11, 'The house');
+
+   INSERT INTO estate (id, zipcode, street, bookingprice, carpetarea, possession, apartmenttype, description)
+VALUES (2, 800013, 'Boring Marg', 580000, 5000, 32018, 31, 'The house has 2 bathrooms.');
+
+   INSERT INTO estate (id, zipcode, street, bookingprice, carpetarea, possession, apartmenttype, description)
+VALUES (3, 800013, 'Vivekananda Path', 380000, 3000, 42018, 21, 'The house is located at 14 Vivekanand Path ');
+
+   INSERT INTO estate (id, zipcode, street, bookingprice, carpetarea, possession, apartmenttype, description)
+VALUES (4, 500017, 'Bahadur Marg', 480000, 4000, 22018, 41, 'The house is located at 14 Bahadur Marg.');
+
+create table estatefeatures (featureid int, feature varchar(255),  PRIMARY KEY (featureid));
+
+
+create table estatefeaturejoin  (id int, featureid int, FOREIGN KEY (id) REFERENCES estate(id),  FOREIGN KEY (featureid) REFERENCES estatefeatures(featureid));
+
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (1, 'Lift');
+
+INSERT INTO estatefeatures (featureid, feature)
+VALUES (2, 'Fire Fighting System');
+
+INSERT INTO estatefeatures (featureid, feature)
+VALUES (3, 'Car Parking');
+ 
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (4, 'Gymnasium');
+
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (7, 'Club House');
+
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (8, 'Childrens Play Area');
+
+ INSERT INTO estatefeatures (featureid, feature)
+VALUES (9, 'Intercom');
+
+ INSERT INTO estatefeaturejoin (id, featureid)
+VALUES (1, 1);
+
+ INSERT INTO estatefeaturejoin (id, featureid)
+VALUES (1, 2);
+
+ INSERT INTO estatefeaturejoin (id, featureid)
+VALUES (2, 1);
+
+ INSERT INTO estatefeaturejoin (id, featureid)
+VALUES (3, 1);
+
+ INSERT INTO estatefeaturejoin (id, featureid)
+VALUES (3, 3);
